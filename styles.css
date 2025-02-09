@@ -1,18 +1,18 @@
 body{
-    background-color: rgb(35, 207, 19);
+    background-color: rgb(217, 228, 216);
     font-family: Arial, Helevetica, sans-serif;
-    color:rgb(217, 240, 12);
+    color:rgb(41, 41, 40);
 }
 
 .einleitung{
-    background: rgb(50, 11, 226);
-    color: rgb(245, 62, 17);
+    background: rgb(238, 238, 240);
+    color: rgb(8, 8, 8);
     padding: 20px;
 }
 
 .content{
     background-color: white;
-    color:rgb(240, 96, 12);
+    color:rgb(3, 3, 3);
     font-family: Arial, Helevetica, sans-serif;
 }
 
