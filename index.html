@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="de">
- 
-
-<!---Kopf-->
-  <head>
-    <meta charset="UTF-8" />
-    <!---<base href = "https://www.kleiderspende-langweid.de" traget="_blank">-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!---Bootstrap CSS laden-->
+    <!---Favicon einbinden https://koschklinkperformance.de/wiki/favicon/#top
+    Erstellt aus Logo https://www.ionos.de/tools/favicon-generator#tool -->
+    <link rel="icon" href="image/fav-logo.png" type="image/png" sizes="16x16">
+    <title>Kleiderspende für die Welt e.V.</title>
+
+   
+
+    <!---Bootstrap CSS laden https://getbootstrap.com/docs/4.3/getting-started/introduction/-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" 
     integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" 
     crossorigin="anonymous">
@@ -21,213 +25,324 @@
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
     crossorigin="anonymous"></script>
 
+        <!---css File laden-->
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <!---javascript laden-->
+        <script type="text/javascript" src="script.js" defer></script> 
+</head>
 
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Kleiderspende</title>
-    <!---css File laden-->
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-    <!---javascript laden-->
-    <script src="script.js" defer></script> 
-  </head>
+<body>
 
 
-
-<!--- Body CSS GRID?? https://developer.mozilla.org/de/docs/Web/CSS/CSS_grid_layout-->
-  <body>
-
-
-
-
-
-      <!--- JavaScript einfügen / Dropdown Formular-->
-      <script>
-       src= script.js 
-       
-      </script> 
+<main>
+  <header class="header">
+      <div class="logo-container">
+      <img src="image/logo.png" alt="Logo" width="150" height="150">
+        <div class="text-overlay">
+        <h1><b>Kleiderspende für die Welt e.V.</b></h1>
+        <h2> gemeinsam gutes tun!</h2> 
+        </div>
+    </div>    
+  </header>
 
 
-
-    <header>
-      <h1>Willkommen auf der Website</h1>
-
-
-      <!--- Kommentar-->
-      <nav>
-        <ul>
-            <li><a href="index.html">Startseite</a></li> 
-            <li><a href="seiten/about.html">Über uns</a></li>
-            <li><a href="seiten/contact.html">Kontakt</a></li>
-            <!--- Überlegen ob Sinnvoll ist-->
-            <li><a href="seiten/sozialmedia.html">Sozial Media Links</a></li>
-        </ul>
-      </nav>
-
-    </header>
-
-
-    <!--- div class = "content" festlegung der Einstellungen für den Body-->
-    <div class="einleitung">
-      
-      <div>
-        <!--- Kommentar-->
-        <a href="#"> Kleidung spenden </a> | <a href="#"> Hilfsprojekte </a> |
-        <a href="#"> Jahresberichte </a> | <a href="#"> Über uns </a> |
-        <a href="#"> Jobs </a> |
-        <a href="#"> Kontakt </a>
-
-        <hr />
-        <h1>Hilfsprojekt Kleiderspende -- Spende jetzt für einen guten Zweck!</h1>
-        <hr />
-      </div>   
+     <!--- Sidebar-->
+     <nav id="navbar">
+      <ul>
+                
+        <li class="action">
+          <a href="index.html">
+            <!---https://icons.getbootstrap.com/icons/house-heart-fill/  -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-heart-fill" viewBox="0 0 16 16">
+              <path d="M7.293 1.5a1 1 0 0 1 1.414 0L11 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l2.354 2.353a.5.5 0 0 1-.708.707L8 2.207 1.354 8.853a.5.5 0 1 1-.708-.707z"/>
+              <path d="m14 9.293-6-6-6 6V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5zm-6-.811c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.691 0-5.018"/>
+            </svg>
+          <span>Home</span>
+          </a>
+        </li>
         
+        <li>
+          <!---JavaScript -->
+          <button onclick=toggleSubMenu(this) class ="dropdown-btn">
+            <!---https://icons.getbootstrap.com/icons/box2-heart-fill/ -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box2-heart-fill" viewBox="0 0 16 16">
+              <path d="M3.75 0a1 1 0 0 0-.8.4L.1 4.2a.5.5 0 0 0-.1.3V15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4.5a.5.5 0 0 0-.1-.3L13.05.4a1 1 0 0 0-.8-.4zM8.5 4h6l.5.667V5H1v-.333L1.5 4h6V1h1zM8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/>
+            </svg>
+            
+            <span>Spenden</span>
+            <!---https://icons.getbootstrap.com/icons/caret-down/ -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+              <path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659"/>
+            </svg>
+          </button>
 
+            <ul class="sub-menu">
+              <div>
+                <li>
+                  <li><a href="#">
+                    <!---https://icons.getbootstrap.com/icons/truck/-->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16">
+                        <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5zm1.294 7.456A2 2 0 0 1 4.732 11h5.536a2 2 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456M12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
+                        </svg>
+                        <span>Kleiderspenden</span>
+                      </a>
+                  </li>
 
-      <!--- Formular Layout Vorlage https://getbootstrap.com/docs/5.3/forms/layout/ und https://www.youtube.com/watch?v=XZmB7pnqXxw -->
-      <section class="container my-2 bg-dark w-50 text-light p-2">
-        <!--- mit selection und den Werten wurde das ganze auf die Seite angepasst und die Farben geändert -->
+                  <li><a href="#">
+                    <!---https://icons.getbootstrap.com/icons/cash-coin/ -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8m5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0"/>
+                      <path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195z"/>
+                      <path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083q.088-.517.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1z"/>
+                      <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 6 6 0 0 1 3.13-1.567"/>
+                    </svg>
+                    <span>Geldspenden</span>
+                  </a>
+                  </li>
+                </li>
+              </div>
+          </ul>
+        </li>
         
+        <li>
+          <!---https://icons.getbootstrap.com/icons/calendar3/ -->
+          <a href="Kalender.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
+              <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857z"/>
+              <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+            </svg>
+           <span>Kalender</span>
+          </a>
+        </li>
+        <li>
+          <!---https://icons.getbootstrap.com/icons/info-square/ -->
+          <a href="about.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-square" viewBox="0 0 16 16">
+              <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+              <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+            </svg>
+            <span>Über uns</span>
+          </a>
+        </li>
+        <li>
+          <!---https://icons.getbootstrap.com/icons/telephone-fill/-->
+          <a href="contact.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+            </svg>
+            <span>Kontakt</span>
+          </a>
+        </li>
+      </ul>  
+    </nav>
+  
 
-            <!-- Dropdown vorab auswahl https://getbootstrap.com/docs/5.3/forms/select/-->
-        <div class="col-md-6">
-        <label for="inputSelection" class="form-label">Wählen Sie eine Option</label>
-       
-        <select id="inputSelection" class="form-select">
 
-          <!--- <option value="none">Wählen Sie eine Option</option> -->
-          <option value="Uebergabe">Übergabe an der Geschäfsstelle</option>
-          <option value="Abholung">Abholung</option>
-        </select>
-        </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p>
+          <h3><b>NEWS</b></h3>
+          <h5><b>neues Kleiderspendenformular seit März 2025</b></h5>
+          <p>Ab jetzt können Sie direkt Ihre Kleiderspende vor Ort oder zur Abholung auf unserer Homepage registrieren. 
+            Vor Ort können Sie dies über unsere Tablettstationen machen und von zu Hause bequem über Tablett, Smartphone oder PC. 
+            Das Formular finden Sie aktuell direkt auf unserer Startseite unter den NEWS. Ab Mai werden Sie das Formular unter dem Punkt Spenden -> Kleiderspende finden.
+            Aktuell finden Sie dort unsere FQAs, diese werden auch später unter dem Reiter zu finden sein.</p>
 
-        <!--Oder 
-        <select class="form-select" aria-label="Default select example">
-  <option selected>Open this select menu</option>
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-</select>  -->
-      
-        <!-- Eingabe-Button 
-         <div class="col-12">
-          <button type="button" class="btn btn-primary">Bestätigen</button>
-        </div> -->
-                        
-        <!--- Bestätigungs-Button -->
-        <div class="col-12">
-          <button type="button" class="btn btn-primary" id="confirmButton">Bestätigen</button>
-        </div>
-      
-
-            <!-- Adressfelder (Zuerst versteckt) -->
-        <div id="addressFields" style="display: none;">
-
-          <div class="col-12">
-            <label for="inputAddress" class="form-label">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-          </div>
-          <div class="col-12">
-            <label for="inputAddress2" class="form-label">Address 2</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-          </div>
-          <div class="col-md-6">
-            <label for="inputCity" class="form-label">City</label>
-            <input type="text" class="form-control" id="inputCity">
-          </div>
-          <div class="col-md-4">
-            <label for="inputState" class="form-label">State</label>
-            <select id="inputState" class="form-select">
-              <option selected>Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-          <div class="col-md-2">
-            <label for="inputZip" class="form-label">Zip</label>
-            <input type="text" class="form-control" id="inputZip">
-          </div>
-        </div>
-
-         <!-- Adressfelder (Zuerst versteckt) Geschäftsstelle -->
-        <div id="officeFields" style="display: none;">
-          <div class="col-12">
-              <label for="inputDate" class="form-label">Wunschdatum für Übergabe</label>
-              <input type="date" class="form-control" id="inputDate">
-          </div>
-          <div class="col-12">
-              <label for="inputTime" class="form-label">Wunschzeit</label>
-              <input type="time" class="form-control" id="inputTime">
-          </div>
+          <h5><b>Projekt Ukraine</b></h5>
+          <p>Erfolgreiche übergabe der Kleiderspenden in Mariupol. Bilder werden demnächst auf der Seite hochgeladen. Dafür wird noch eine Projektseite erstellt.</p>
+          <h5><b>Projekt Uganda</b></h5>
+          <p>Erfolgreiche übergabe der Kleiderspenden in Karamoja. Bilder werden demnächst auf der Seite hochgeladen. Dafür wird noch eine Projektseite erstellt.</p>
+          <h5><b>Projekt Kenia</b></h5>
+          <p>Für das "Projekt Kenia" wurden am letzten Wochenende bei der Spendengala 25000 € gesammelt. Einen genauen Bericht für die Veranstaltung sowie Fotos werden
+            Sie demnächst auf unserer Website unter dem Punkt "Projekte" finden. 
+          </p>
+        </p>
       </div>
-        <!-- Checkbox 
-        <div class="col-12">
+
+      <div class="col-md-6">
+        <p>
+          <h3><b>nächsten Abholtermine für die Kleiderspende</b></h3>
+            <li>Sa 15.03.2025</li>
+            <li>Sa 29.03.2025</li>
+            <li>Sa 12.04.2025</li>
+            <li>Sa 26.04.2025</li>
+            <li>Sa 10.05.2025</li>
+            <hr>
+            <h5><b>wichtiger Hinweis:</b></h5>
+            <p><b>Es wird für die Projekte Ukraine, Uganda, Kenia, Syrien und Kirgistan. Bitte geben Sie im Formular das gewünschte Spendenland an!</b></p>
+        </p>
+      </div>
+
+    </div>
+
+    <div id="form-container">  <!--- alt container mt-4-->  
+        <!---https://icons.getbootstrap.com/icons/box-seam-fill/-->
+        <h4 class="bezeichnung_formular"> <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-box-seam-fill" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 
+          0 0 1 .471-.696L7.443.184l.01-.003.268-.108a.75.75 0 0 1 .558 0l.269.108.01.003zM10.404 2 4.25 4.461 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339L8 
+          5.961 5.596 5l6.154-2.461z"/>
+        </svg> Formular zur Registrierung der Kleiderspende</h4>
+        
+        <hr>
+
+        <!---Abholung oder Übergabe an Geschäftsstelle-->
+        <div id="mb-3"> 
+          <h5><b>Übergabeform</b></h5>
+          <!---https://getbootstrap.com/docs/5.3/forms/checks-radios/-->
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-              Check me out
+            <input class="form-check-input" type="checkbox" value="" id="Abholung">
+            <label class="form-check-label" for="Abholung">
+              Abholung
             </label>
           </div>
-        </div>-->
 
-
-
-      </form>
-    </section>
-
-
-    
-      <div class="content">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat ex
-        aliquid fuga, minima ipsa vero enim quam iure dolorem esse aut ad earum
-        asperiores, dicta error corporis, accusantium itaque.
-      </p>
-      <p>
-        Sint natus reiciendis nam consequuntur libero eligendi odio sapiente
-        dolore sit eius placeat veniam facilis aliquid itaque illum voluptates,
-        dolores quisquam accusantium quia sunt unde porro nihil molestias.
-        Excepturi!
-      </p>
-      <p>
-        Deserunt reiciendis dolores sequi hic quo, porro ad dignissimos harum
-        excepturi? Suscipit cupiditate eius fugit aspernatur repellat dolor
-        cumque dolore ullam eos, deleniti debitis officia beatae perspiciatis
-        totam atque?
-      </p>
-      <p>
-        Vero soluta repellendus ex, voluptas laborum facere corrupti similique.
-        Nulla deleniti inventore cupiditate sed, assumenda harum molestiae velit
-        saepe quo consectetur at debitis dolores ut excepturi ipsam itaque
-        porro!
-      </p>
-      <p>
-        Ullam eligendi, itaque autem explicabo quaerat nesciunt deserunt culpa
-        voluptate? Reiciendis, officiis, minima quidem dignissimos, velit
-        aliquid possimus error ut blanditiis labore molestias in reprehenderit
-        nobis consequatur dolorem voluptas.
-      </p>
-      <p>
-        In quos dolor officia! Vero neque ut est, necessitatibus similique quas
-        placeat hic labore saepe nobis amet corporis, odit id? Dicta dolores a
-        aliquid quisquam nam facilis magnam aperiam.
-      </p>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="Uebergabe">
+            <label class="form-check-label" for="Uebergabe">
+              Übergabe an der Geschäftsstelle
+            </label>
+          </div>
         </div>
+
+        <hr>
+
+        <!---Adresse für Abholung-->
+        <div id="adresseAbholung" class="mb-3" style="display:none;" > 
+          <h5><b>Adresseingabe</b></h5>
+
+          <div class="input-group mb-2">
+            <span class="input-group-text">Vor- und Nachname</span>
+            <input type="text"  class="form-control anrede" placeholder="Anrede (Frau/Herr/Divers)">
+            <input type="text"  class="form-control titel" placeholder="Titel z.B. Dr.">
+            <input type="text"  class="form-control vorname" placeholder="Vorname">
+            <input type="text"  class="form-control nachname" placeholder="Nachname">
+          </div>
+
+          <div class="input-group mb-2"> 
+            <span class="input-group-text">Straße und Hausnummer</span>
+            <input type="text" class="form-control strasse" placeholder="Straße">
+            <input type="text" class="form-control hausnummer" placeholder="Hausnummer">
+            <input type="text" class="form-control hausnummerzusatz" placeholder="Hausnummerzusatz z.B. A">
+            <input type="text" class="form-control adresszusatz" placeholder="Adresszusatz z.B. 1. Stock">
+          </div>
+
+          <div class="input-group mb-2">
+            <span class="input-group-text">PLZ und Ort</span>
+            <input type="text"  class="form-control plz" placeholder="PLZ">
+            <input type="text"  class="form-control ort" placeholder="Ort">
+          </div>
+          
+        </div>
+
+        <!-- Kleidungsspendenliste -->
+        <h5><b>Welche Kleidung möchten Sie spenden?</b></h5>
+        <div id="spendenListe">
+          <div class="row mb-2 spenden-item">
+            <div class="col-md-4">
+              <input type="text" class="form-control kleidungsstueck" placeholder="Kleidungsstück (z.B. T-Shirt)">
+            </div>
+
+            <div class="col-md-3">
+              <input type="number" class="form-control anzahl" placeholder="Anzahl">
+            </div>
+
+            <div class="col-md-3">
+              <input type="text" class="form-control groesse" placeholder="Größe">
+            </div>
+            
+            <div class="col-md-2">
+              <!---https://getbootstrap.com/docs/4.0/components/buttons/-->
+              
+              <!---remove Button -->
+              <button type="button" id="removeKleidung" class="btn btn-danger remove-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-minus" viewBox="0 0 16 16">
+                <path d="M5.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5"/>
+                <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1"/>
+              </svg></button>
+              <!---Add Button-->
+              <button type="button" id="addKleidung" class="btn btn-success add-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-plus" viewBox="0 0 16 16">
+                <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5z"/>
+                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"/>
+              </svg></button>
+            </div>
+          </div>
+        </div>       
+
+        <hr>
+
+        <!---Land wo die Kleiderspende hingehen soll:-->
+
+        <div id="mb-3"> 
+          <h5><b>Spendenland</b></h5>
+          <p><b>(Bitte nur ein Spendenland auswählen!)</b></p>
+          <!---https://getbootstrap.com/docs/5.3/forms/checks-radios/-->
+          <div class="form-check">
+            <input class="form-check-input spendenland" type="checkbox" value="Ukraine" id="Ukraine">
+            <label class="form-check-label" for="Ukraine">
+              Ukraine
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input spendenland" type="checkbox" value="Uganda" id="Uganda">
+            <label class="form-check-label" for="Uganda">
+              Uganda
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input spendenland" type="checkbox" value="Kenia" id="Kenia">
+            <label class="form-check-label" for="Kenia">
+              Kenia
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input spendenland" type="checkbox" value="Syrien" id="Syrien">
+            <label class="form-check-label" for="Syrien">
+              Syrien
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input spendenland" type="checkbox" value="Kirgistan" id="Kirgistan">
+            <label class="form-check-label" for="Kirgistan">
+              Kirgistan
+            </label>
+          </div>
+
+        </div>
+        
+        <!---Error Messages für verschiedene Felder-->
+        <p id="error-message_land" style="color: red; display: none;">Bitte genau ein Spendenland auswählen!</p>
+        <p id="error-message_abholung" style="color: red; display: none;">Bitte wählen Sie entweder Abholung oder Abgabe an Geschäftsstelle aus!</p>
+        <p id="error-message_adresse" style="color: red; display: none;">Bitte geben Sie ihre vollständige Adresse ein!</p>
+        <p id="error-message_plz" style="color: red; display: none;">Sie liegen außerhalb des Abholradiuses!</p>
+        
+        
+        <hr>
+        <!---Abschicken des Auftrags-->
+        <button type="button" id="abschicken_button" class="btn btn-primary">Abschicken</button>       
+     
     </div>
 
 
-  </body>
+      <!-- Bereich zur Anzeige der JSON-Bestätigung -->
+      <pre id="json-output" style="display: none;"></pre>
+
+      <div id="nach-absenden" style="display: none;">
+        <h3>Vielen Dank für Ihre Spende!</h3>
+        <button id="drucken_button" class="btn btn-secondary">Drucken</button>
+        <button id="zurueck_button" class="btn btn-primary">Zurück</button>
+      </div>
+
+  <footer class="footer">
+      <a href="seiten/impressum.html">Impressum</a> |
+      <a href="seiten/datenschutz.html">Datenschutz</a> |
+  </footer>
+
+  </main>
 
 
-
-
-
-  <!---Fußzeile-->
-<footer>
-
-  <a href="seiten/impressum.html">Impressum</a> /
-  <a href="seiten/datenschutz.html">Datenschutz</a> /
-
-</footer>
-
-
+</body>
 </html>
