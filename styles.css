@@ -1,20 +1,193 @@
-body{
-    background-color: rgb(217, 228, 216);
-    font-family: Arial, Helevetica, sans-serif;
-    color:rgb(41, 41, 40);
+/* https://getbootstrap.com/docs/4.0/getting-started/webpack/   https://getbootstrap.com/docs/5.3/getting-started/download/ */
+@import 'bootstrap/css/bootstrap.min.css'; /*Projektordner*/
+
+
+
+:root {
+ 
+    --bs-orange: #fd7e14;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+    --bs-gray-dark: #343a40;
+    --bs-secondary: #6c757d;
+    --bs-warning: #ffc107;
+    --bs-light: #f8f9fa;
+    --bs-dark: #212529;
+    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  }
+  html, body {
+    font-family: Arial, Helvetica, sans-serif; /* Schriftart */
+    
+    /* Min 3:50 https://www.youtube.com/watch?v=2IV08sP9m3U Literaturstelle für responsives Webdesign*/
+    font-size: clamp(1.8rem, 10 vw, 5rem);
+
+    background-color: var(--bs-dark); /* Hintergrundfarbe */
+    color: var(--bs-white); /* Standard-Schriftfarbe */
+        /*abklären - starteinstellung*/
+    margin: 0;
+    padding: 0;
+}
+.col-md-6{
+    /*Abstand nach dem Logo */
+    margin-top: 20px;
+    border: 2px solid var(--bs-warning);
+    border-radius: 1em;
+    margin-bottom: 20px;
+    display: grid;
+    text-align: center;
+    /* Punkte zentrieren*/
+    list-style: inside;
+        p{
+        text-align: justify;
+        }  
+}
+/*Für das Formular*/
+.col-md-12{
+    /*Abstand nach dem Logo */
+    margin-top: 20px;
+    border: 1px solid var(--bs-secondary);
+    border-radius: 1em;
+    margin-bottom: 20px;
+    display: grid;
+
 }
 
-.einleitung{
-    background: rgb(238, 238, 240);
-    color: rgb(8, 8, 8);
-    padding: 20px;
+#form-container{
+     /*Abstand nach dem Logo */
+     margin-top: 20px;
+    
+     border: 1px solid var(--bs-secondary);
+     border-radius: 1em;
+     margin-bottom: 20px;
+     display: grid;
 }
 
-.content{
-    background-color: white;
-    color:rgb(3, 3, 3);
-    font-family: Arial, Helevetica, sans-serif;
+/*Kopfzeile*/
+.header{
+    text-align: center;
+    border-bottom: 2px solid var(--bs-white);
+    padding: 20px 0;
+}
+/* Logo-Bild  min 5:41 https://www.youtube.com/watch?v=2IV08sP9m3U Bild responsives Verhalten*/
+.header img {
+    max-width: 100%;
+    height: auto;
 }
 
 
+#navbar{
+  display: flex;
+  
+}
 
+#navbar ul, #navbar li{
+    /*Punkte der Aufzählung werden entfernt */
+    list-style: none;
+    
+}
+#navbar ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+}
+
+#navbar li {
+    list-style: none;
+}
+
+#navbar a {
+    padding: 10px 20px;
+    display: block;
+    text-decoration: none;
+    color: var(--bs-white);
+}
+
+
+#navbar a, #navbar .dropdown-btn{
+ 
+    border-radius: .5em;
+    padding: .85em;
+    /* unterstrich für Link entfernen */
+    text-decoration: none;
+    color: var(--bs-white);
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+#navbar a span, #navbar .dropdown-btn span{
+    flex-grow: 1;  
+}
+/* hervorheben welcher Button ausgewählt wurde */
+#navbar a:hover, #navbar .dropdown-btn:hover{
+    background-color: var(--bs-gray);
+}
+#navbar .sub-menu{
+    display: grid;
+    /* https://www.youtube.com/watch?v=R7b3OlEyqug 14 min - für begründung */
+    grid-template-rows: 0fr;
+    transition: 300ms ease-in-out;
+
+    > div {
+        overflow: hidden;
+    }
+}
+
+#navbar a:hover{
+    background-color: var(--bs-gray);
+}
+
+#navbar .sub-menu.show{
+    grid-template-rows: 1fr;
+  }
+  .dropdown-btn svg{
+      transition: 200ms ease;
+  }
+  
+  /*icon wird gedreht */
+  .rotate svg:last-child{
+      rotate: 180deg;
+  }
+  /*Text einrücken */
+  #navbar .sub-menu a{
+      padding-left: .5em;
+  }
+  #toggle-btn{
+    margin-left: auto;
+    padding: 1em;
+    border: none;
+    border-radius: .5em;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    ;
+}
+svg{
+    transition: rotate 150ms ease;
+}
+#toggle-btn:hover{
+    background-color: var(--bs-gray);
+}
+
+
+/*Fußzeile*/
+.footer{
+    text-align: center;
+    font-size: calc(1.8rem, 10 vw, 5rem);
+    border-top: 1px solid var(--bs-white);
+}
+.footer a{
+    text-decoration: none;
+    color: var(--bs-white);
+    align-items: flex-end;
+}
+.footer a:hover{
+    background-color: var(--bs-gray);
+}
+
+.jsonOutput{
+    background-color: --bs-dark; 
+    padding: 10px; 
+    border-radius: 5px;
+}
