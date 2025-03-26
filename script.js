@@ -13,8 +13,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const spendenListe = document.getElementById("spendenListe");
     const checkboxesSpende = document.querySelectorAll(".spendenland");
 
+    /*Error Messages*/
     const errorMessageLand = document.getElementById("error-message_land");
     const errorMessageAbholung = document.getElementById("error-message_abholung");
+    const errorMessageAdresse = document.getElementById("error-message_adresse");
+    const errorMessageKleidung = document.getElementById("error-message_kleidung");
+    const errorMessagePLZ = document.getElementById("error-message_plz");
 
     
 
@@ -59,14 +63,22 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="col-md-4">
                 <input type="text" class="form-control kleidungsstueck" placeholder="Kleidungsstück">
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <input type="number" class="form-control anzahl" placeholder="Anzahl">
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <input type="text" class="form-control groesse" placeholder="Größe">
             </div>
             <div class="col-md-2">
-                <button type="button" class="btn btn-danger remove-item">-</button>
+                <button type="button" id="removeKleidung" class="btn btn-danger remove-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-minus" viewBox="0 0 16 16">
+                <path d="M5.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5"/>
+                <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1"/>
+              </svg></button>
+              <!---Add Button-->
+              <button type="button" id="addKleidung" class="btn btn-success add-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-plus" viewBox="0 0 16 16">
+                <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5z"/>
+                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"/>
+              </svg></button>
             </div>
         `;
         spendenListe.appendChild(newLine);
@@ -111,9 +123,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         if (kleidungList.length === 0) {
-            alert("Bitte geben Sie mindestens ein Kleidungsstück an.");
+            errorMessageKleidung.textContent = "Bitte geben Sie mindestens ein Kleidungsstück an.";
+            errorMessageKleidung.style.display= "block";
             return;
         }
+        errorMessageKleidung.style.display = "none";
+        
 
         // Adresse erfassen (falls Abholung gewählt)
         let adressDaten = null;
@@ -130,19 +145,29 @@ document.addEventListener("DOMContentLoaded", function () {
             // **PLZ-Validierung**
            // PLZ muss genau 5 Zeichen lang sein und nur Zahlen enthalten
             if (plz.length !== 5 || isNaN(plz)) {
-                alert("Bitte geben Sie eine gültige PLZ mit genau 5 Zahlen ein.");
+                errorMessagePLZ.textContent = "Ihre PLZ liegt außerhalb unseres Abholradius.";
+                errorMessagePLZ.style.display= "block";
                 return;
             }
+            errorMessagePLZ.style.display = "none";
+
             // PLZ muss mit "86" beginnen
             if (plz.substring(0, 2) !== "86") {
-                alert("Ihre PLZ liegt außerhalb unseres Abholradius.");
+                errorMessagePLZ.textContent = "Ihre PLZ liegt außerhalb unseres Abholradius.";
+                errorMessagePLZ.style.display= "block";
                 return;
             }
+            errorMessagePLZ.style.display = "none";
+
             // **Adressprüfung - Alle Felder müssen ausgefüllt sein**
             if (!vorname || !nachname || !strasse || !hausnummer || !plz || !ort) {
-                alert("Adresse unvollständig! Bitte füllen Sie alle Felder aus.");
+                errorMessageAdresse.textContent = "Bitte füllen tragen Sie Vorname, Nachname, Straße, Hausnummer, PLZ und Ort ein!";
+                errorMessageAdresse.style.display= "block";
+                
                 return;
             }
+            errorMessageAdresse.style.display = "none";
+
     
             adressDaten = {
                 anrede,

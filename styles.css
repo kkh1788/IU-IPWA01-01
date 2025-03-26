@@ -2,7 +2,6 @@
 @import 'bootstrap/css/bootstrap.min.css'; /*Projektordner*/
 
 :root {
- 
     --bs-orange: #fd7e14;
     --bs-white: #fff;
     --bs-gray: #6c757d;
@@ -19,7 +18,7 @@
     font-family: Arial, Helvetica, sans-serif; /* Schriftart */
     
     /* Min 3:50 https://www.youtube.com/watch?v=2IV08sP9m3U Literaturstelle für responsives Webdesign*/
-    font-size: clamp(1.8rem, 10 vw, 5rem);
+    font-size: clamp(1.8rem, 10 vw, 5rem); /*dynamische Schriftgrößen*/
 
     background-color: var(--bs-dark); /* Hintergrundfarbe */
     color: var(--bs-white); /* Standard-Schriftfarbe */
@@ -27,34 +26,6 @@
     margin: 0;
     padding: 0;
 }
-.col-md-6{
-    /*Abstand nach dem Logo */
-    margin-top: 20px;
-    border: 2px solid var(--bs-warning);
-    border-radius: 1em;
-    margin-bottom: 20px;
-    display: grid;
-    text-align: center;
-    /* Punkte zentrieren*/
-    list-style: inside;
-        p{
-        text-align: justify;
-        }  
-}
-/*Für das Formular*/
-
-
-
-
-#form-container{
-     /*Abstand nach dem Logo */
-     margin-top: 20px;
-     border: 1px solid var(--bs-secondary);
-     border-radius: 1em;
-     margin-bottom: 20px;
-     display: grid;
-}
-
 /*Kopfzeile*/
 .header{
     text-align: center;
@@ -66,127 +37,240 @@
     max-width: 100%;
     height: auto;
 }
-
-
+/*Navigationsbereich*/
 #navbar {
     display: flex;
     justify-content: center; /* Zentriert die Menü-Punkte */
     align-items: center; /* Stellt sicher, dass die Höhe passt */
     margin-top: 20px;
+    padding: 10px 0;
     border-bottom: 2px solid var(--bs-white);
 }
-
 #navbar ul {
     display: flex;
     justify-content: center; /* Elemente innerhalb von <ul> zentrieren */
     align-items: center;
+    list-style: none;
     padding: 0;
     width: 100%;
 }
-
 #navbar li {
-    list-style: none;
     margin: 0 15px; /* Abstand zwischen den Elementen */
-}
-
-
-
-
-
-#navbar a {
-    padding: 10px 20px;
-    display: block;
-    text-decoration: none;
-    color: var(--bs-white);    
-}
-#navbar .sub-menu{
-    display: grid;
-    /* https://www.youtube.com/watch?v=R7b3OlEyqug 14 min - für begründung */
-    grid-template-rows: 0fr;
-    transition: 300ms ease-in-out;
-    
-    > div {
-        overflow: hidden;
-    }
-}
-
-#navbar a, #navbar .dropdown-btn{
- 
-    border-radius: .5em;
-    padding: .85em;
-    /* unterstrich für Link entfernen */
-    text-decoration: none;
-    color: var(--bs-white);
-    display: flex;
-    align-items: center;
-    gap: 1em;
-}
-#navbar a span, #navbar .dropdown-btn span{
-    flex-grow: 1;  
+    position: relative;
 }
 /* hervorheben welcher Button ausgewählt wurde */
 #navbar a:hover, #navbar .dropdown-btn:hover{
     background-color: var(--bs-gray);
 }
-
-#navbar a:hover{
+#navbar a, #navbar .dropdown-btn{
+    border-radius: .5em;
+    border: none;
+    padding: .85em;
+    gap: 1em;
+    /* unterstrich für Link entfernen */
+    text-decoration: none;
+    align-items: center;
+    background-color: var(--bs-dark);
+    color: var(--bs-white);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: 300ms ease-in-out;
+    font-size: clamp(1rem, 2vw, 1.2rem); 
+}  
+#navbar svg{
+    min-width: 1.0em;
+    min-height: 1.0em;
+}
+#navbar .dropdown-btn svg:last-child {
+    margin-left: auto;
+  }
+/* nachschauen */
+#navbar a span, #navbar .dropdown-btn span{
+    flex-grow: 1;  
+    text-align: left; 
+}
+#navbar .sub-menu{
+    position: absolute;
+    margin-left: 2rem; /* EINRÜCKUNG für Unterpunkte */
+    
+    top: 100%; /* Direkt unter dem Hauptmenü */
+    left: 0;
+    transform: none; 
+    background-color: var(--bs-dark);
+    display: none;
+    
+    width: 200px;
+    padding: 0.5em 1em;
+} 
+/* Sub-Menü Styling */
+#navbar .sub-menu li {
+    padding: 10px 0;
+    white-space: nowrap;
+}
+  /*Text einrücken */
+  #navbar .sub-menu a{
+    display: felx;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--bs-white);
+  }
+  #navbar .sub-menu a svg {
+    min-width: 1.0em;
+    min-height: 1.0em;
+  }
+#navbar .sub-menu a:hover {
     background-color: var(--bs-gray);
 }
-#navbar .dropdown-btn:hover {
-    background-color: var(--bs-gray);
-}
-
 #navbar .sub-menu.show{
     grid-template-rows: 1fr; 
 }
-  
-#navbar .dropdown-btn {
-    background-color: var(--bs-dark);
-    color: var(--bs-white);
-    border: none;
-    border-radius: .5em;
-    padding: .85em;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 1em;
+  #navbar .sub-menu.show {
+    display: block;
 }
-
-
-
-
-  /*icon wird gedreht */
+  /*icon wird gedreht Dropdown Pfeil*/
   .rotate svg:last-child{
-      rotate: 180deg;
+    rotate: 180deg;
+}
+
+/*smartphone kleinere Displays*/
+@media (max-width: 768px) {
+    #navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px;
+    }
+  
+    #navbar ul {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    #navbar li {
+      width: 100%;
+      margin: 5px 0;
+    }
+  
+    #navbar a, #navbar .dropdown-btn {
+      width: 100%;
+      justify-content: flex-start;
+    }
+  
+    #navbar .sub-menu {
+      left: 0;
+      transform: translateX(0);
+      width: 100%;
+      position: relative;
+    }
   }
 
-  /*Text einrücken */
-  #navbar .sub-menu a{
-      padding: .5em;
+
+/*Textblöcke Anfang */
+.container{
+    margin: 20px auto;
+    padding:10px;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    display: flex;    
+}
+ /*Blöcke*/
+ .col-md-6{
+    flex: 1 1 300px; /* responsiv, min 300px, wächst bei Bedarf */
+    padding: 30px;
+    text-align: center;
+    border: 2px solid var(--bs-warning);
+    border-radius: 2em;  
+}
+/*Abstand zwischen den Textboxen*/
+.col-md-6:first-child {
+  margin-right: 20px;
+}
+
+@media (max-width: 768px) {
+  .col-md-6:first-child {
+    margin-right: 0;
+    margin-bottom: 20px;
   }
-  #toggle-btn{
-    margin-left: auto;
-    padding: 1em;
-    border: none;
-    border-radius: .5em;
-    background: none;
-    cursor: pointer;
-    display: flex;
-    
 }
-svg{
-    transition: rotate 150ms ease;
+
+/*Liste*/
+.col-md-6 ul{
+    list-style-position: inside;
+    padding-left: 0;
+    text-align: center;
 }
-#toggle-btn:hover{
-    background-color: var(--bs-gray);
+/*smartphone kleinere Displays*/
+@media (max-width: 768px) {
+    .col-md-6 {
+      flex: 1 1 100%;
+    }
+    .col-md-12{
+        flex: 1 1 100%; 
+    }
+  }
+
+  .col-md-12{
+    flex: 1 1 300px; /* responsiv, min 300px, wächst bei Bedarf */
+    padding: 30px;
+    text-align: center;
+    border: 2px solid var(--bs-warning);
+    border-radius: 2em;  
 }
+
+
+/*Für das Formular*/
+#form-container{
+    margin-bottom: 20px;
+    display: grid;
+    max-width: 900px;      /* ← gleiche Breite wie deine Infobox */
+    margin: 30px auto;     /* zentriert + vertikaler Abstand */
+    border: 4px solid var(--bs-secondary);
+    border-radius: 1em;
+    padding: 20px;
+    background-color: var(--bs-dark); 
+    font-size: clamp(1rem, 2vw, 1.2rem);   
+}
+@media (max-width: 768px) {
+    #form-container {
+      margin: 15px;
+      padding: 15px;
+    }
+  
+    #spendenListe .row > div {
+      margin-bottom: 10px;
+    }
+  }
+  /*Schriftgröße in den placeholdern*/
+  input::placeholder, textarea::placeholder {
+    font-size: clamp(0.75rem, 1.5vw, 0.9rem); /* responsiv kleiner */
+}
+
+/*JavaScript scirpt.js*/
+.jsonOutput{
+    background-color: --bs-dark; 
+    padding: 10px; 
+    border-radius: 5px;
+}
+
 
 
 /*Fußzeile*/
 .footer{
-    text-align: center;
-    font-size: calc(1.8rem, 10 vw, 5rem);
-    border-top: 1px solid var(--bs-white);
+    display: flex;
+    justify-content: center; /* Zentriert die Menü-Punkte */
+    align-items: center; /* Stellt sicher, dass die Höhe passt */
+    list-style: none;
+    
+    gap: 1em;
+    margin-top: 20px;
+    padding: 10px 0;
+
+    font-size: clamp(1.8rem, 10 vw, 5rem); /* noch anpassen */
+    border-top: 1px solid var(--bs-white); 
+    border-bottom: 2px solid var(--bs-white);
 }
 .footer a{
     text-decoration: none;
@@ -195,11 +279,4 @@ svg{
 }
 .footer a:hover{
     background-color: var(--bs-gray);
-}
-
-/*JavaScript scirpt.js*/
-.jsonOutput{
-    background-color: --bs-dark; 
-    padding: 10px; 
-    border-radius: 5px;
 }
