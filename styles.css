@@ -1,8 +1,6 @@
 /* https://getbootstrap.com/docs/4.0/getting-started/webpack/   https://getbootstrap.com/docs/5.3/getting-started/download/ */
 @import 'bootstrap/css/bootstrap.min.css'; /*Projektordner*/
 
-
-
 :root {
  
     --bs-orange: #fd7e14;
@@ -44,20 +42,13 @@
         }  
 }
 /*Für das Formular*/
-.col-md-12{
-    /*Abstand nach dem Logo */
-    margin-top: 20px;
-    border: 1px solid var(--bs-secondary);
-    border-radius: 1em;
-    margin-bottom: 20px;
-    display: grid;
 
-}
+
+
 
 #form-container{
      /*Abstand nach dem Logo */
      margin-top: 20px;
-    
      border: 1px solid var(--bs-secondary);
      border-radius: 1em;
      margin-bottom: 20px;
@@ -77,33 +68,47 @@
 }
 
 
-#navbar{
-  display: flex;
-  
+#navbar {
+    display: flex;
+    justify-content: center; /* Zentriert die Menü-Punkte */
+    align-items: center; /* Stellt sicher, dass die Höhe passt */
+    margin-top: 20px;
+    border-bottom: 2px solid var(--bs-white);
 }
 
-#navbar ul, #navbar li{
-    /*Punkte der Aufzählung werden entfernt */
-    list-style: none;
-    
-}
 #navbar ul {
     display: flex;
-    justify-content: space-around;
+    justify-content: center; /* Elemente innerhalb von <ul> zentrieren */
+    align-items: center;
     padding: 0;
+    width: 100%;
 }
 
 #navbar li {
     list-style: none;
+    margin: 0 15px; /* Abstand zwischen den Elementen */
 }
+
+
+
+
 
 #navbar a {
     padding: 10px 20px;
     display: block;
     text-decoration: none;
-    color: var(--bs-white);
+    color: var(--bs-white);    
 }
-
+#navbar .sub-menu{
+    display: grid;
+    /* https://www.youtube.com/watch?v=R7b3OlEyqug 14 min - für begründung */
+    grid-template-rows: 0fr;
+    transition: 300ms ease-in-out;
+    
+    > div {
+        overflow: hidden;
+    }
+}
 
 #navbar a, #navbar .dropdown-btn{
  
@@ -123,35 +128,41 @@
 #navbar a:hover, #navbar .dropdown-btn:hover{
     background-color: var(--bs-gray);
 }
-#navbar .sub-menu{
-    display: grid;
-    /* https://www.youtube.com/watch?v=R7b3OlEyqug 14 min - für begründung */
-    grid-template-rows: 0fr;
-    transition: 300ms ease-in-out;
-
-    > div {
-        overflow: hidden;
-    }
-}
 
 #navbar a:hover{
     background-color: var(--bs-gray);
 }
+#navbar .dropdown-btn:hover {
+    background-color: var(--bs-gray);
+}
 
 #navbar .sub-menu.show{
-    grid-template-rows: 1fr;
-  }
-  .dropdown-btn svg{
-      transition: 200ms ease;
-  }
+    grid-template-rows: 1fr; 
+}
   
+#navbar .dropdown-btn {
+    background-color: var(--bs-dark);
+    color: var(--bs-white);
+    border: none;
+    border-radius: .5em;
+    padding: .85em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+
+
+
   /*icon wird gedreht */
   .rotate svg:last-child{
       rotate: 180deg;
   }
+
   /*Text einrücken */
   #navbar .sub-menu a{
-      padding-left: .5em;
+      padding: .5em;
   }
   #toggle-btn{
     margin-left: auto;
@@ -161,7 +172,7 @@
     background: none;
     cursor: pointer;
     display: flex;
-    ;
+    
 }
 svg{
     transition: rotate 150ms ease;
@@ -186,6 +197,7 @@ svg{
     background-color: var(--bs-gray);
 }
 
+/*JavaScript scirpt.js*/
 .jsonOutput{
     background-color: --bs-dark; 
     padding: 10px; 
