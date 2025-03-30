@@ -105,19 +105,19 @@
 } 
 /* Sub-Menü Styling */
 #navbar .sub-menu li {
-    padding: 10px 0;
-    white-space: nowrap;
+  padding: 10px 0;
+  display: flex;  
 }
   /*Text einrücken */
-  #navbar .sub-menu a{
-    display: felx;
+#navbar .sub-menu a{
+    display: flex;
     align-items: center;
     gap: 0.8rem;
     padding: 10px;
     text-decoration: none;
     color: var(--bs-white);
-  }
-  #navbar .sub-menu a svg {
+      }
+#navbar .sub-menu a svg {
     min-width: 1.0em;
     min-height: 1.0em;
   }
@@ -127,16 +127,16 @@
 #navbar .sub-menu.show{
     grid-template-rows: 1fr; 
 }
-  #navbar .sub-menu.show {
+#navbar .sub-menu.show {
     display: block;
 }
   /*icon wird gedreht Dropdown Pfeil*/
-  .rotate svg:last-child{
+.rotate svg:last-child{
     rotate: 180deg;
 }
 
 /*smartphone kleinere Displays*/
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     #navbar {
       flex-direction: column;
       align-items: flex-start;
@@ -165,8 +165,6 @@
       position: relative;
     }
   }
-
-
 /*Textblöcke Anfang */
 .container{
     margin: 20px auto;
@@ -188,22 +186,20 @@
 .col-md-6:first-child {
   margin-right: 20px;
 }
-
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .col-md-6:first-child {
     margin-right: 0;
     margin-bottom: 20px;
   }
 }
-
 /*Liste*/
 .col-md-6 ul{
     list-style-position: inside;
     padding-left: 0;
     text-align: center;
 }
-/*smartphone kleinere Displays*/
-@media (max-width: 768px) {
+/*smartphone kleinere Displays https://developer.mozilla.org/de/docs/Web/CSS/flex*/
+@media (max-width: 767px) {
     .col-md-6 {
       flex: 1 1 100%;
     }
@@ -211,16 +207,23 @@
         flex: 1 1 100%; 
     }
   }
-
   .col-md-12{
     flex: 1 1 300px; /* responsiv, min 300px, wächst bei Bedarf */
     padding: 30px;
-    text-align: center;
-    border: 2px solid var(--bs-warning);
+    /*https://developer.mozilla.org/en-US/docs/Web/CSS/text-align*/
+    text-align: justify;
+    border: 4px solid var(--bs-secondary);
     border-radius: 2em;  
+    line-height: 25px;
+
 }
-
-
+.col-md-12 li{
+  list-style-position: inside;
+  margin-left: 20px;
+  padding: 10px;
+  text-align: left;
+  line-height: 25px;
+}
 /*Für das Formular*/
 #form-container{
     margin-bottom: 20px;
@@ -233,7 +236,7 @@
     background-color: var(--bs-dark); 
     font-size: clamp(1rem, 2vw, 1.2rem);   
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     #form-container {
       margin: 15px;
       padding: 15px;
@@ -254,11 +257,8 @@
     padding: 10px; 
     border-radius: 5px;
 }
-
-
-
 /*Fußzeile*/
-.footer{
+.footer ul{
     display: flex;
     justify-content: center; /* Zentriert die Menü-Punkte */
     align-items: center; /* Stellt sicher, dass die Höhe passt */

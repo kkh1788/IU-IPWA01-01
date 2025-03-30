@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const adresseEingabe = document.getElementById("adresseAbholung");
 
     const spendenListe = document.getElementById("spendenListe");
-    const checkboxesSpende = document.querySelectorAll(".spendenland");
+    
 
     /*Error Messages*/
     const errorMessageLand = document.getElementById("error-message_land");
@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-/* Dropwdown öffnen und schließen - Sidebar */
+/* Dropwdown öffnen und schließen - Sidebar - Youtube Video min!!*/
 function toggleSubMenu(button) {
     button.nextElementSibling.classList.toggle('show');
     button.classList.toggle('rotate');
