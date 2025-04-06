@@ -1,17 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
+    
+    /*Elemente Formular*/
     const formContainer = document.getElementById("form-container");
-    const abschickButton = document.getElementById("abschicken_button");
-    const jsonOutput = document.getElementById("json-output");
+    const abschickButton = document.getElementById("abschicken_button");      
     const druckButton = document.getElementById("drucken_button");
     const zurueckButton = document.getElementById("zurueck_button");
     const nachAbsendenContainer = document.getElementById("nach-absenden");
-
     const abholung = document.getElementById("Abholung");
     const uebergabe = document.getElementById("Uebergabe");
     const adresseEingabe = document.getElementById("adresseAbholung");
-
     const spendenListe = document.getElementById("spendenListe");
     
+    /*Ausgabe der Bestätigung*/
+    const jsonOutput = document.getElementById("json-output");
 
     /*Error Messages*/
     const errorMessageLand = document.getElementById("error-message_land");
@@ -21,16 +22,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const errorMessagePLZ = document.getElementById("error-message_plz");
 
     
-
+    /*Ticketnummersystem einführen*/
     let ticketNumber = localStorage.getItem("ticketNumber") ? parseInt(localStorage.getItem("ticketNumber")) : 1000;
 
     /* Sicherstellen, dass nur eine Option gewählt werden kann (Abholung ODER Übergabe) */
     function validateAbholungUebergabe() {
-        if (abholung.checked && uebergabe.checked) {
-            errorMessageAbholung.textContent = "Bitte wählen Sie entweder 'Abholung' oder 'Übergabe an der Geschäftsstelle' aus – nicht beides!";
-            errorMessageAbholung.style.display = "block";
-            return false;
-        } else if (!abholung.checked && !uebergabe.checked) {
+        /*beide Felder nicht ausgewählt*/
+        if (!abholung.checked && !uebergabe.checked) {
             errorMessageAbholung.textContent = "Bitte wählen Sie eine Übergabeform aus!";
             errorMessageAbholung.style.display = "block";
             return false;
@@ -39,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return true;
     }
 
+    /*Abholung Adressfeld einblenden*/
     abholung.addEventListener("change", function () {
         if (abholung.checked) {
             uebergabe.checked = false;
@@ -47,15 +46,16 @@ document.addEventListener("DOMContentLoaded", function () {
             adresseEingabe.style.display = "none";
         }
     });
-
-    uebergabe.addEventListener("change", function () {
+    /*Block löschen, überflüssig*/
+    /*uebergabe.addEventListener("change", function () {
         if (uebergabe.checked) {
             abholung.checked = false;
             adresseEingabe.style.display = "none";
         }
-    });
+    });*/
+  
 
-    /* Kleidungsstück hinzufügen */
+    /* Kleidungsstück hinzufügen, neue Felder hinzufügen */
     function addItem() {
         const newLine = document.createElement("div");
         newLine.classList.add("row", "mb-2", "spenden-item");
@@ -208,6 +208,9 @@ document.addEventListener("DOMContentLoaded", function () {
         nachAbsendenContainer.style.display = "none";
         jsonOutput.style.display = "none";
     });
+
+
+
 });
 
 /* Dropwdown öffnen und schließen - Sidebar - Youtube Video min!!*/
@@ -215,3 +218,4 @@ function toggleSubMenu(button) {
     button.nextElementSibling.classList.toggle('show');
     button.classList.toggle('rotate');
 }
+
