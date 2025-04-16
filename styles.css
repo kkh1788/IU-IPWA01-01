@@ -1,31 +1,18 @@
 /* https://getbootstrap.com/docs/4.0/getting-started/webpack/   https://getbootstrap.com/docs/5.3/getting-started/download/ */
 @import 'bootstrap/css/bootstrap.min.css'; /*Projektordner*/
 
-:root {
-    --bs-orange: #fd7e14;
-    --bs-white: #fff;
-    --bs-gray: #6c757d;
-    --bs-gray-dark: #343a40;
-    --bs-secondary: #6c757d;
-    --bs-warning: #ffc107;
-    --bs-light: #f8f9fa;
-    --bs-dark: #212529;
-    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  }
   html, body {
     font-family: Arial, Helvetica, sans-serif; /* Schriftart */
     
-    /* Min 3:50 https://www.youtube.com/watch?v=2IV08sP9m3U Literaturstelle für responsives Webdesign*/
-    font-size: clamp(1.8rem, 10 vw, 5rem); /*dynamische Schriftgrößen*/
+    /* Min 3:50 https://www.youtube.com/watch?v=2IV08sP9m3U Literaturstelle für responsives Webdesign // https://developer.mozilla.org/en-US/docs/Web/CSS/clamp*/
+    font-size: clamp(0.87, 2vw, 1.125rem); /*dynamische Schriftgrößen https://www.mediaevent.de/css/clamp.html?utm_source=chatgpt.com*/
 
     background-color: var(--bs-dark); /* Hintergrundfarbe */
     color: var(--bs-white); /* Standard-Schriftfarbe */
-        /*abklären - starteinstellung*/
     margin: 0;
     padding: 0;
 }
+
 /*Kopfzeile*/
 .header{
     text-align: center;
@@ -37,6 +24,7 @@
     max-width: 100%;
     height: auto;
 }
+
 /*Navigationsbereich*/
 #navbar {
     display: flex;
@@ -76,7 +64,7 @@
     align-items: center;
     justify-content: flex-start;
     transition: 300ms ease-in-out;
-    font-size: clamp(1rem, 2vw, 1.2rem); 
+    font-size: clamp(0.87, 2vw, 1.125rem); 
 }  
 #navbar svg{
     min-width: 1.0em;
@@ -85,7 +73,6 @@
 #navbar .dropdown-btn svg:last-child {
     margin-left: auto;
   }
-/* nachschauen */
 #navbar a span, #navbar .dropdown-btn span{
     flex-grow: 1;  
     text-align: left; 
@@ -93,10 +80,9 @@
 #navbar .sub-menu{
     position: absolute;
     margin-left: 2rem; /* EINRÜCKUNG für Unterpunkte */
-    
     top: 100%; /* Direkt unter dem Hauptmenü */
     left: 0;
-    transform: none; 
+    
     background-color: var(--bs-dark);
     display: none;
     
@@ -124,16 +110,15 @@
 #navbar .sub-menu a:hover {
     background-color: var(--bs-gray);
 }
-#navbar .sub-menu.show{
-    grid-template-rows: 1fr; 
-}
+
 #navbar .sub-menu.show {
     display: block;
 }
-  /*icon wird gedreht Dropdown Pfeil*/
+  /*icon wird gedreht Dropdown Pfeil /*  18:12 min https://www.youtube.com/watch?v=R7b3OlEyqug */
 .rotate svg:last-child{
     rotate: 180deg;
 }
+
 
 /*smartphone kleinere Displays*/
 @media (max-width: 767px) {
@@ -160,12 +145,13 @@
   
     #navbar .sub-menu {
       left: 0;
-      transform: translateX(0);
       width: 100%;
       position: relative;
     }
   }
-/*Textblöcke Anfang */
+
+
+  /*Textblöcke Anfang */
 .container{
     margin: 20px auto;
     padding:10px;
@@ -176,8 +162,8 @@
 }
  /*Blöcke*/
  .col-md-6{
-    flex: 1 1 300px; /* responsiv, min 300px, wächst bei Bedarf */
-    padding: 30px;
+    flex: 1 1 300px; /* responsiv, min 300px, wächst bei Bedarf --https://developer.mozilla.org/de/docs/Web/CSS/flex */
+    padding: 20px;
     text-align: center;
     border: 2px solid var(--bs-warning);
     border-radius: 2em;  
@@ -226,6 +212,7 @@
 }
 /*Für das Formular*/
 #form-container{
+  
     margin-bottom: 20px;
     display: grid;
     max-width: 900px;      /* ← gleiche Breite wie deine Infobox */
@@ -234,7 +221,7 @@
     border-radius: 1em;
     padding: 20px;
     background-color: var(--bs-dark); 
-    font-size: clamp(1rem, 2vw, 1.2rem);   
+    font-size: clamp(0.87, 2vw, 1.125rem);   
 }
 @media (max-width: 767px) {
     #form-container {
@@ -248,34 +235,35 @@
   }
   /*Schriftgröße in den placeholdern*/
   input::placeholder, textarea::placeholder {
-    font-size: clamp(0.75rem, 1.5vw, 0.9rem); /* responsiv kleiner */
+    font-size: clamp(0.87, 2vw, 1.125rem);  /* responsiv kleiner */
 }
+
 
 /*JavaScript scirpt.js*/
 .jsonOutput{
-    background-color: --bs-dark; 
+    background-color: var(--bs-dark); 
     padding: 10px; 
     border-radius: 5px;
 }
+
 /*Fußzeile*/
 .footer ul{
     display: flex;
+    flex-wrap: wrap; /*Elemente werden auf kleinen Bildschirmen untereiander dargestellt oder nur teilweise*/
     justify-content: center; /* Zentriert die Menü-Punkte */
     align-items: center; /* Stellt sicher, dass die Höhe passt */
     list-style: none;
-    
     gap: 1em;
     margin-top: 20px;
     padding: 10px 0;
-
-    font-size: clamp(1.8rem, 10 vw, 5rem); /* noch anpassen */
+    font-size: clamp(0.87, 2vw, 1.125rem); 
     border-top: 1px solid var(--bs-white); 
     border-bottom: 2px solid var(--bs-white);
 }
 .footer a{
     text-decoration: none;
     color: var(--bs-white);
-    align-items: flex-end;
+    display: flex;
 }
 .footer a:hover{
     background-color: var(--bs-gray);

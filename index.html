@@ -25,7 +25,7 @@
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
     crossorigin="anonymous"></script>
 
-        <!---css File laden-->
+        <!---CSS File laden-->
         <link rel="stylesheet" type="text/css" href="/styles.css" />
         <!---javascript laden-->
         <script type="text/javascript" src="/script.js" defer></script> 
@@ -133,7 +133,7 @@
         </li>
       </ul>  
     </nav>
-  
+    <!---Content-Bereich-->
     <div class="container">
     <div class="row">
       <div class="col-md-6">
@@ -179,7 +179,8 @@
    </div>
   </div>
 
-    <div id="form-container">  <!--- alt container mt-4-->  
+    <!---Formular für die Kleiderspende-->
+    <div id="form-container">  
         <!---https://icons.getbootstrap.com/icons/box-seam-fill/-->
         <h4 class="bezeichnung_formular"> <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-box-seam-fill" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 
@@ -282,7 +283,7 @@
             <div class="col-md-2">
               <!---https://getbootstrap.com/docs/4.0/components/buttons/-->
               
-              <!---remove Button -->
+              <!---Remove Button -->
               <button type="button" id="removeKleidung" class="btn btn-danger remove-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-minus" viewBox="0 0 16 16">
                 <path d="M5.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5"/>
                 <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1"/>
@@ -343,7 +344,7 @@
         
         <!---Error Messages für verschiedene Felder-->
         <p id="error-message_land" style="color: red; display: none;">Bitte genau ein Spendenland auswählen!</p>
-        <p id="error-message_abholung" style="color: red; display: none;">Bitte wählen Sie entweder Abholung oder Abgabe an Geschäftsstelle aus!</p>
+        <p id="error-message_abholung" style="color: red; display: none;">Bitte wählen Sie eine Übergabeform aus!</p>
         <p id="error-message_kleidung" style="color: red; display: none;">Bitte geben Sie mindestens ein Kleidungsstück an!</p>
         <p id="error-message_adresse" style="color: red; display: none;">Bitte füllen tragen Sie Vorname, Nachname, Straße, Hausnummer, PLZ und Ort ein!</p>
         <p id="error-message_plz" style="color: red; display: none;">Sie liegen außerhalb des Abholradiuses!</p>
