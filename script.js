@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* JSON-Daten generieren und anzeigen */
     abschickButton.addEventListener("click", function () {
-        if (!validateAbholungUebergabe()) return; // Falls beides ausgewählt wurde, Abbruch - weglassen?
+        if (!validateAbholungUebergabe()) return; 
         /*weiter laufende Ticketnummer für spätere Zuordnung in der Datenbank*/
         ticketNumber++;
         /*nur im Browser des Nutzers - nur Simulationszwecke - müsste dann für die Datenbank abgeändert werden*/
@@ -101,8 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Spendenland erfassen (muss eines ausgewählt sein- sonst Fehler )
         const spendenlandElement = document.querySelector(".spendenland:checked");
-        if (!spendenlandElement) {
-            
+        if (!spendenlandElement) { 
             errorMessageLand.style.display = "block";
             return;
         }
@@ -121,7 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         // Fehlerausgabe wenn kein Kleidungsstück eingetragen wurde - Liste wird geprüft
         if (kleidungList.length === 0) {
-            
             errorMessageKleidung.style.display= "block";
             return;
         }
@@ -173,6 +171,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 plz,
                 ort
             };
+        } else {
+            /*als Adresse wird Geschäftsstelle angezeigt, wenn keine Abholung ausgewählt wurden*/
+            adressDaten = "Geschäftsstelle";
         }
 
         // JSON generieren für die Bestätigung der Kleidungsregistrierung
@@ -197,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Auswahl nach Erstellung der JSON Ausgabe
-    // Drucken-Button
+    /* Drucken Button https://www.w3schools.com/jsref/met_win_print.asp*/
     druckButton.addEventListener("click", function () {
         window.print();
     });
